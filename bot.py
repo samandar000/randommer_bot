@@ -10,17 +10,20 @@ def start(update,context):
     text = 'Hello! 👋 \nThis is a demo version of the Telegram Store bot. You can test out catalog function and checkout process.'
     bot = context.bot
     
-    Catalog = KeyboardButton(text='🏬 Catalog')
-    Orders = KeyboardButton(text='📦 Orders')
-    Userinfo = KeyboardButton(text='👤 User info')
-    Cart = KeyboardButton(text='🛒 Cart')
-    Administration = KeyboardButton(text='🎛 Administration')
+    Card = KeyboardButton(text='💳 Card')
+    Finance = KeyboardButton(text='💴 Finance')
+    Misc = KeyboardButton(text='🙍‍♂️ Misc')
+    Name = KeyboardButton(text='🈴 Name')
+    Phone = KeyboardButton(text='📱 Phone')
+    SNumber = KeyboardButton(text='📊 Social Number')
+    Text = KeyboardButton(text='📝 Text')
 
     keyboard = ReplyKeyboardMarkup(
-        [
-            [Catalog,Orders],
-            [Userinfo,Cart],
-            [Administration]
+        [   
+            [Card,Finance],
+            [Misc,Name],
+            [Phone,SNumber],
+            [Text]
         ],
         resize_keyboard=True
     )
@@ -227,7 +230,7 @@ def clear(update,context):
 updater = Updater('5643654386:AAGaxNP-8Kkwzi8Ko047p0BZBd3t6a0eIu4')
 
 updater.dispatcher.add_handler(CommandHandler('start', start))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('🏬 Catalog'),catalog))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('💳 Card'),catalog))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('📦 Orders'),order))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('🛒 Cart'),cart))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('👤 User info'),userinfo))
